@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.starcases.calc.CalcController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" onAction="#newOnAction"/>
+            <MenuItem mnemonicParsing="false" text="Quit" onAction="#quitOnAction"/>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Copy" onAction="#copyOnAction"/>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About Calc" onAction="#aboutOnAction" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="0.0" prefWidth="-1.0" style="&#10;" text="" textAlignment="CENTER" wrapText="false">
+          <font>
+              <Font size="18.0" fx:id="x1" />
+          </font>
+          <textFill>
+              <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+          </textFill>
+      </Label>
+    <SplitPane dividerPositions="0.4505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="283.0" prefWidth="314.0">
+              <children>
+                <Label fx:id="result" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <GridPane layoutX="48.0" layoutY="97.0" prefHeight="202.0" prefWidth="387.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="58.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="58.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="58.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="one" mnemonicParsing="false" onMouseClicked="#onNumber1ButtonClick" prefHeight="26.0" prefWidth="65.0" text="1" />
+                              <Button fx:id="two" mnemonicParsing="false" onMouseClicked="#onNumber2ButtonClick" prefHeight="26.0" prefWidth="65.0" text="2" GridPane.columnIndex="1" />
+                              <Button fx:id="three" mnemonicParsing="false" onMouseClicked="#onNumber3ButtonClick" prefHeight="26.0" prefWidth="65.0" text="3" GridPane.columnIndex="2" />
+                              <Button fx:id="four" mnemonicParsing="false" onMouseClicked="#onNumber4ButtonClick" prefHeight="26.0" prefWidth="65.0" text="4" GridPane.rowIndex="1" />
+                              <Button fx:id="five" mnemonicParsing="false" onMouseClicked="#onNumber5ButtonClick" prefHeight="26.0" prefWidth="65.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="six" mnemonicParsing="false" onMouseClicked="#onNumber6ButtonClick" prefHeight="26.0" prefWidth="65.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Button fx:id="seven" mnemonicParsing="false" onMouseClicked="#onNumber7ButtonClick" prefHeight="26.0" prefWidth="65.0" text="7" GridPane.rowIndex="2" />
+                              <Button fx:id="eight" mnemonicParsing="false" onMouseClicked="#onNumber8ButtonClick" prefHeight="26.0" prefWidth="65.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="nine" mnemonicParsing="false" onMouseClicked="#onNumber9ButtonClick" prefHeight="26.0" prefWidth="65.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Button fx:id="zero" mnemonicParsing="false" onMouseClicked="#onNumber0ButtonClick" prefHeight="26.0" prefWidth="65.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Button fx:id="plus" mnemonicParsing="false" onMouseClicked="#onAddButtonClick" prefHeight="26.0" prefWidth="65.0" text="+" GridPane.columnIndex="3" />
+                              <Button fx:id="minus" mnemonicParsing="false" onMouseClicked="#onSubtractButtonClick" prefHeight="26.0" prefWidth="65.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Button fx:id="div" mnemonicParsing="false" onMouseClicked="#onDivButtonClick" prefHeight="26.0" prefWidth="65.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Button fx:id="mult" mnemonicParsing="false" onMouseClicked="#onMultButtonClick" prefHeight="26.0" prefWidth="65.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Button fx:id="enter" mnemonicParsing="false" onMouseClicked="#onEnterButtonClick" prefHeight="26.0" prefWidth="65.0" text="Enter" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Button fx:id="del" mnemonicParsing="false" onMouseClicked="#onDelButtonClick" prefHeight="26.0" prefWidth="65.0" text="Del" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <Button fx:id="clear" mnemonicParsing="false" onMouseClicked="#onClearButtonClick" prefHeight="26.0" prefWidth="65.0" text="Clear" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                              <Button fx:id="sin" mnemonicParsing="false" onMouseClicked="#onSinButtonClick" prefHeight="26.0" prefWidth="65.0" text="sin" GridPane.rowIndex="4" />
+                              <Button fx:id="abs" mnemonicParsing="false" onMouseClicked="#onAbsButtonClick" prefHeight="26.0" prefWidth="65.0" text="abs" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="exp" mnemonicParsing="false" onMouseClicked="#onExponentButtonClick" prefHeight="26.0" prefWidth="65.0" text="^" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Button fx:id="cos" mnemonicParsing="false" onMouseClicked="#onCosButtonClick" prefHeight="26.0" prefWidth="65.0" text="cos" GridPane.rowIndex="5" />
+                              <Button fx:id="mod" mnemonicParsing="false" onMouseClicked="#onModButtonClick" prefHeight="26.0" prefWidth="65.0" text="mod/%" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Button fx:id="sign" mnemonicParsing="false" onMouseClicked="#onSignButtonClick" prefHeight="26.0" prefWidth="65.0" text="+ / -" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Button fx:id="tan" mnemonicParsing="false" onMouseClicked="#onTanButtonClick" prefHeight="26.0" prefWidth="65.0" text="tan" GridPane.rowIndex="6" />
+                              <Button fx:id="drop" mnemonicParsing="false" onMouseClicked="#onDropButtonClick" prefHeight="26.0" prefWidth="65.0" text="Drop" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                              <Button fx:id="dot" mnemonicParsing="false" onMouseClicked="#onNumberDotButtonClick" prefHeight="26.0" prefWidth="65.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <GridPane fx:id="stack">
+          <children>
+          <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="" textAlignment="CENTER" textFill="$x2" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+          </children>
+               <columnConstraints>
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+        </GridPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
